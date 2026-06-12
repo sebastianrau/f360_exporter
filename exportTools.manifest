@@ -1,0 +1,14 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"addin",
+	"id": "exportTools",
+	"author":	"Sebastian Rau",
+	"description":	{
+		"en": "Exports STL files fromm visible bodies. Bodies only, all condifig, full assembly"
+	},
+	"version":	"1.1.0",
+	"runOnStartup":	true,
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true,
+	"iconFilename":	"resources/logo.svg"
+}
