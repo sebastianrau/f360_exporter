@@ -1,0 +1,77 @@
+# Example input for "Export Parameter Sets".
+# Parameter names must match Fusion user/model parameter names.
+# Values are assigned to each parameter's expression, so include units where needed.
+
+parameterSets:
+  - name: a-b
+    parameters:
+      text: 'A-B'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm
+      opening: 4.5 mm
+
+  - name: a-c
+    parameters:
+      text: 'A-C'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm
+      opening: 4.5 mm 
+
+  - name: a-u
+    parameters:
+      text: 'A-µ'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm 
+      opening: 4.5 mm
+
+
+  - name: a-l
+    parameters:
+      text: 'A-L'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm
+      opening: 4.5 mm
+
+  - name: c-c
+    parameters:
+      text: 'C-C'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm
+      opening: 4.5 mm
+
+  - name: c-u
+    parameters:
+      text: 'C-µ'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm
+      opening: 4.5 mm
+
+  - name: c-l
+    parameters:
+      text: 'C-L'
+      height: 18 mm
+      width: 15 mm
+      length: 40 mm
+      opening: 4.5 mm
+
+  - name: eth
+    parameters:
+      text: 'ETH'
+      height: 25 mm
+      width: 20 mm
+      length: 60 mm 
+      opening: 6 mm
+
+  - name: HDMI
+    parameters:
+      text: 'HDM'
+      height: 25 mm
+      width: 20 mm
+      length: 60 mm 
+      opening: 6 mm
