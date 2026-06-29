@@ -37,9 +37,11 @@ def exportAssemblyStructured():
     for body, folder_parts in body_items:
         try:
             body_name = sanitize_filename_part(body.name)
-            path_prefix = sanitize_filename_part("_".join(folder_parts)) if folder_parts else "Assembly"
-            filename = f"{path_prefix}_{body_name}_v{file_version}.stl"
-            fullpath = get_unique_path(os.path.join(export_folder, filename))
+            target_folder = os.path.join(export_folder, *folder_parts)
+            os.makedirs(target_folder, exist_ok=True)
+
+            filename = f"{body_name}_v{file_version}.stl"
+            fullpath = get_unique_path(os.path.join(target_folder, filename))
 
             export_body_as_stl(export_mgr, body, fullpath)
             exported_count += 1

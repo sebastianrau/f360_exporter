@@ -19,7 +19,7 @@ CONFIG = {
         {
             "id": "exportTools_exportAssemblyStructured",
             "name": "Export Assembly Bodies",
-            "tooltip": "Export all visible solid bodies in the assembly as STL files in one folder.",
+            "tooltip": "Export all visible solid bodies in the assembly as STL files in component subfolders.",
             "function": "exportAssemblyStructured",
         },
         {
