@@ -20,6 +20,7 @@ config = load_addin_module("export_tools.config")
 export_all_bodies = load_addin_module("export_tools.features.export_all_bodies")
 export_all_configs = load_addin_module("export_tools.features.export_all_configs")
 export_assembly_structured = load_addin_module("export_tools.features.export_assembly_structured")
+apply_parameter_set = load_addin_module("export_tools.features.apply_parameter_set")
 export_parameter_sets = load_addin_module("export_tools.features.export_parameter_sets")
 
 log = common.log
@@ -33,6 +34,7 @@ COMMANDS = {
     "exportAllBodies": export_all_bodies.exportAllBodies,
     "exportAssemblyStructured": export_assembly_structured.exportAssemblyStructured,
     "exportConfigSTL": export_all_configs.exportConfigSTL,
+    "applyParameterSet": apply_parameter_set,
     "exportParameterSets": export_parameter_sets.exportParameterSets,
 }
 
@@ -117,6 +119,23 @@ class GenericCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
     def notify(self, args):
         try:
             cmd = args.command
+            command_spec = COMMANDS.get(self.function_name)
+            if hasattr(command_spec, "on_command_created"):
+                created_handlers = command_spec.on_command_created(cmd)
+                if not created_handlers:
+                    return
+                if not isinstance(created_handlers, (list, tuple)):
+                    created_handlers = [created_handlers]
+                for handler in created_handlers:
+                    if isinstance(handler, adsk.core.CommandEventHandler):
+                        cmd.execute.add(handler)
+                    elif isinstance(handler, adsk.core.InputChangedEventHandler):
+                        cmd.inputChanged.add(handler)
+                    else:
+                        continue
+                    handlers.append(handler)
+                return
+
             on_execute = GenericCommandExecuteHandler(self.function_name)
             cmd.execute.add(on_execute)
             handlers.append(on_execute)

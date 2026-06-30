@@ -28,5 +28,11 @@ CONFIG = {
             "tooltip": "Read parameter sets from YAML, apply each set, and export visible root bodies as STL.",
             "function": "exportParameterSets",
         },
+        {
+            "id": "exportTools_applyParameterSet",
+            "name": "Apply Parameter Set",
+            "tooltip": "Read a YAML file, choose one parameter set, and apply it to the active design.",
+            "function": "applyParameterSet",
+        },
     ],
 }

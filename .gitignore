@@ -319,6 +319,7 @@ $RECYCLE.BIN/
 **build
 **test
 **temp
+export_tools/.exporttools_cache.json
 
 ## Project macOS
 .DS_Store

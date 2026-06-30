@@ -1,5 +1,23 @@
 # Release Notes
 
+## 1.1.0
+
+### Added
+
+- Added **Apply Parameter Set**, a command that opens a YAML-backed dialog, lets you select one `parameterSet` from a dropdown, and applies it to the active design without exporting.
+- Added an **Open YAML file** button to the Apply Parameter Set dialog.
+- Remember the last selected YAML file for Apply Parameter Set in a local, ignored cache file.
+
+### Changed
+
+- The add-in command loader now supports commands with custom Fusion command inputs and input-change handlers.
+- The Apply Parameter Set dropdown reloads when a different YAML file is selected.
+- README now documents single-set apply behavior and YAML file caching.
+
+### Fixed
+
+- Prevented Fusion from freezing when reloading a YAML file by making dropdown item clearing bounded and guarding against repeated file-dialog events.
+
 ## 1.0.0
 
 Initial stable release of ExportTools for Fusion 360.
@@ -20,7 +38,7 @@ Initial stable release of ExportTools for Fusion 360.
 ### Changed
 
 - Refactored the add-in into one entrypoint plus separate feature files.
-- Assembly exports now use flat output filenames instead of creating component subfolders.
+- Assembly exports now create component subfolders for visible assembly bodies.
 - Parameter-set exports now write all STL files directly into the selected output folder.
 
 ### Notes
